@@ -19,11 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Projects" />
-        <activity android:name=".EventUpdates" />
-        <activity android:name=".FeedBack" />
+        <activity android:name=".ProjectsActivity" />
+        <activity android:name=".EventUpdatesActivity" />
         <activity
-            android:name=".SIGs"
+            android:name=".SIGsActivity"
             android:label="@string/title_activity_sigs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -3,7 +3,7 @@ package org.ieeedtu.ieee_dtu;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Projects extends AppCompatActivity {
+public class ProjectsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -84,17 +84,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_projects) {
-            Intent i = new Intent(this, Projects.class);
+            Intent i = new Intent(this, ProjectsActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_sig) {
-            Intent i = new Intent(this, SIGs.class);
+            Intent i = new Intent(this, SIGsActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_event_updates) {
-            Intent i = new Intent(this, EventUpdates.class);
+            Intent i = new Intent(this, EventUpdatesActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_feedback) {
-            Intent i = new Intent(this, FeedBack.class);
-            startActivity(i);
+
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

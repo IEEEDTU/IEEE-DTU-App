@@ -9,17 +9,17 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Projects" />
         <item
-            android:id="@+id/nav_sig"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="SIG's" />
-        <item
-            android:id="@+id/nav_event_updates"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Event Updates" />
-        <item
             android:id="@+id/nav_feedback"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Feedback" />
+        <item
+            android:id="@+id/nav_council_mem"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Council Members" />
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Privacy Policy" />
     </group>
 
     <item android:title="Communicate">

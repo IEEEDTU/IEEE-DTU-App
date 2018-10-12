@@ -8,6 +8,16 @@ public class Projects {
     private String desc ;
     private int contact;
     private String link;
+    private String madeBy;
+
+
+    public String getMadeBy() {
+        return madeBy;
+    }
+
+    public void setMadeBy(String madeBy) {
+        this.madeBy = madeBy;
+    }
 
     public String getTitle() {
         return title;

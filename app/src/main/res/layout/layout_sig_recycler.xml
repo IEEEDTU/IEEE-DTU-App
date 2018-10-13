@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#E3F2FD"
     android:layout_height="wrap_content"
+    android:background="#E3F2FD"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -14,22 +14,24 @@
         android:elevation="20dp"
         app:cardCornerRadius="10sp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/sigback"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sig_topic"
+                android:layout_marginTop="10sp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_sig_date"
-                    android:layout_width="90sp"
-                    android:layout_height="90sp"
-                    android:layout_margin="10sp"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
                     android:background="@color/date"
                     android:gravity="center"
                     android:text="10"
@@ -39,108 +41,321 @@
 
                 <TextView
                     android:id="@+id/tv_sig_month"
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10sp"
-                    android:layout_marginLeft="10sp"
-                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10sp"
+                    android:autoSizeMaxTextSize="10sp"
                     android:gravity="center"
                     android:text="August"
-                    android:autoSizeMaxTextSize="10sp"
-                    android:textSize="18sp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColor="@color/date"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/sigback"
-                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_sig_topic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10sp"
-                    android:text="Topic"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_sig_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10sp"
+                android:text="Topic"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
+
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/date"
+                android:layout_below="@id/tv_sig_topic"/>
+
+
+            <LinearLayout
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view1"
+                android:layout_marginTop="5sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="50sp"
+                android:layout_toRightOf="@+id/date"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_sig_from"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
-                    android:text="From : " />
+                    android:text="From : "
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:text=" to "
+                    android:textColor="#000000" />
 
                 <TextView
                     android:id="@+id/tv_sig_to"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
-                    android:text="To : " />
-
-                <TextView
-                    android:id="@+id/tv_sid_mentors1"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:textColor="@color/date"
-                    android:text="Mentor1 :"/>
-
-                <TextView
-                android:id="@+id/tv_sid_mentors2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:textColor="@color/date"
-                    android:text="Mentor2 :"/>
-
-                <TextView
-                    android:visibility="gone"
-                    android:id="@+id/tv_sid_mentors3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:textColor="@color/date"
-                    android:text=""/>
-
-                <LinearLayout
-                    android:layout_gravity="end"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:id="@+id/setReminder"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="end"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/baseline_event_black_18dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:id="@+id/tv_sig_reminder"
-                        android:layout_gravity="end"
-                        android:textStyle="bold"
-                        android:textColor="@color/date"
-                        android:text="Set Reminder"/>
-
-                </LinearLayout>
-
-
-
-
+                    android:text="To : "
+                    android:textColor="#000000" />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/mentor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/date"
+                android:text="Mentors: "
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/date"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sid_mentors1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mentor"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_toRightOf="@+id/date"
+                android:text="Mentor1 :"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/date"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sid_mentors2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sid_mentors1"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="5sp"
+                android:layout_toRightOf="@+id/date"
+                android:text="Mentor2 :"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/date"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sid_mentors3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sid_mentors2"
+                android:layout_marginLeft="10sp"
+                android:layout_marginBottom="5sp"
+                android:layout_toRightOf="@+id/date"
+                android:text="Mentor3 :"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/date"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/calling1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mentor"
+                android:layout_alignEnd="@+id/tv_sid_mentors1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5sp"
+                android:layout_marginRight="15sp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageButton
+                    android:id="@+id/call_1"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/baseline_call_black_18dp" />
+
+                <TextView
+                    android:id="@+id/call1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:layout_weight="1"
+                    android:text="Call"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/date"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/calling2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sid_mentors1"
+                android:layout_alignEnd="@+id/tv_sid_mentors2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="15sp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <ImageButton
+                    android:id="@+id/call_2"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/baseline_call_black_18dp" />
+
+                <TextView
+                    android:id="@+id/call2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:layout_weight="1"
+                    android:text="Call"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/date"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/calling3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sid_mentors2"
+                android:layout_alignEnd="@+id/tv_sid_mentors3"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="5sp"
+                android:layout_marginRight="15sp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="2">
+
+                <ImageButton
+                    android:id="@+id/call_3"
+                    android:layout_width="18sp"
+                    android:layout_height="18sp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/baseline_call_black_18dp" />
+
+                <TextView
+                    android:id="@+id/call3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:layout_weight="1"
+                    android:text="Call"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textColor="@color/date"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_toRightOf="@+id/date"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/date"
+                android:layout_below="@id/tv_sid_mentors3"/>
+
+                <ImageButton
+                    android:id="@+id/setReminder"
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_below="@+id/tv_sid_mentors3"
+                    android:layout_alignLeft="@id/mentor"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
+                    android:layout_toRightOf="@+id/date"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/baseline_event_black_18dp" />
+
+                <TextView
+                    android:id="@+id/tv_sig_reminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Set Reminder"
+                    android:layout_below="@+id/tv_sid_mentors3"
+                    android:layout_marginTop="10sp"
+                    android:layout_toRightOf="@+id/setReminder"
+                    android:textColor="@color/date"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="10sp"
+                    android:textStyle="bold" />
+
+
+
+            <ImageButton
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_below="@+id/tv_sid_mentors3"
+                android:layout_alignLeft="@id/calling1"
+                android:layout_gravity="center"
+                android:layout_marginTop="10sp"
+                android:layout_toRightOf="@+id/reminder"
+                android:background="@drawable/baseline_share_black_18dp" />
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/share"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_below="@+id/tv_sid_mentors3"-->
+            <!--android:layout_toRightOf="@+id/reminder"-->
+            <!--android:layout_alignLeft="@+id/calling1"-->
+            <!--android:layout_marginTop="10sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageButton-->
+            <!--android:layout_width="20sp"-->
+            <!--android:layout_height="20sp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@drawable/sahre"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10sp"-->
+            <!--android:id="@+id/tv_sig_share"-->
+            <!--android:layout_gravity="end"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/date"-->
+            <!--android:textSize="18sp"-->
+            <!--android:text="Share"/>-->
+            <!--</LinearLayout>-->
+
+
+        </RelativeLayout>
 
 
     </android.support.v7.widget.CardView>

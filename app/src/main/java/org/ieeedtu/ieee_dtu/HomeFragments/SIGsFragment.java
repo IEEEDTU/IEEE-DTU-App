@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.ieeedtu.ieee_dtu.R;
@@ -46,8 +47,8 @@ public class SIGsFragment extends Fragment {
     String [] gd = {"Shivam Kumar","Kunal Farmah"};
     String [] datas = {"Shivam Kumar","Kunal Farmah"};
     String [] cx = {"Shivam Kumar","Kunal Farmah"};
-    String [] bp = {"Shivam Kumar","Kunal Farmah"};
-    String [] dsa = {"Shivam Kumar","Kunal Farmah"};
+    String [] bp = {"Shivam Kumar","Kunal Farmah","Mentor3"};
+    String [] dsa = {"Shivam Kumar","Kunal Farmah","Mentor4"};
     String [] solidworks = {"Shivam Kumar","Kunal Farmah"};
 
 
@@ -91,15 +92,17 @@ public class SIGsFragment extends Fragment {
 
         ArrayList<SIG> sigs = new ArrayList<>();
 
-        SIG sig = new SIG();
+
         for (int i = 0; i < topic.length; i++) {
+
+            SIG sig = new SIG();
             sig.setFrom(time_from[i]);
             sig.setTo(time_to[i]);
             sig.setTopic(topic[i]);
             // setting mentors names
             sig.setMentors(mentors.get(i));
             sigs.add(sig);
-            Log.e("SIG-", sig.getTopic());
+           // Log.e("SIG-", sig.getTopic());
         }
 
         recyclerView =v.findViewById(R.id.rv_sig) ;
@@ -122,7 +125,7 @@ public class SIGsFragment extends Fragment {
 class SIGAdapter extends RecyclerView.Adapter<SIGAdapter.SIGHolder> {
     private ArrayList<SIG> sig;
 
-    public static String m1="",m2="",m3="";
+    public String m1="",m2="",m3="";
 
     public SIGAdapter(ArrayList<SIG> sig) {
         this.sig = sig;
@@ -147,9 +150,16 @@ class SIGAdapter extends RecyclerView.Adapter<SIGAdapter.SIGHolder> {
 
         holder.tv_mentor1.setText(m1);
         holder.tv_mentor2.setText(m2);
+
         if(!m3.equals("")){
             holder.tv_mentor3.setVisibility(View.VISIBLE);
             holder.tv_mentor3.setText(m3);
+            holder.call3.setVisibility(View.VISIBLE);
+        }
+        if(m3.equals("")){
+            holder.tv_mentor3.setVisibility(View.GONE);
+            holder.call3.setVisibility(View.GONE);
+
         }
     }
 
@@ -163,6 +173,7 @@ class SIGAdapter extends RecyclerView.Adapter<SIGAdapter.SIGHolder> {
 
     public class SIGHolder extends RecyclerView.ViewHolder {
         TextView tv_topic, tv_from, tv_to, tv_mentor1,tv_mentor2,tv_mentor3;
+        LinearLayout call3;
 
         public SIGHolder(View itemView) {
             super(itemView);
@@ -172,6 +183,7 @@ class SIGAdapter extends RecyclerView.Adapter<SIGAdapter.SIGHolder> {
             tv_mentor1 = itemView.findViewById(R.id.tv_sid_mentors1);
             tv_mentor2 = itemView.findViewById(R.id.tv_sid_mentors2);
             tv_mentor3 = itemView.findViewById(R.id.tv_sid_mentors3);
+            call3=itemView.findViewById(R.id.calling3);
 
         }
     }
@@ -182,6 +194,7 @@ class SIGAdapter extends RecyclerView.Adapter<SIGAdapter.SIGHolder> {
         if(mentors.length==2){
             m1=mentors[0];
             m2=mentors[1];
+            m3="";
         }
 
         else if(mentors.length==3){

@@ -1,5 +1,6 @@
 package org.ieeedtu.ieee_dtu;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;
@@ -18,11 +19,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ProjectsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class ProjectsActivity extends AppCompatActivity {
 
     String[] title = {"Tic-Tac-Toe-Online","RealtimeTicTacToe", "LFR", "Robots", "ChatBot", "Project 2", "Project 3"};
-//    String[][] tags = new String[title.length][5];
-//    tags={{"gamne online firebase"}
+
     String[] tags = {"android  game  online  firebase  java  ","android  game  online  firebase  java  ","lfrdesc1  IOT  lfrdesc2","AI  ML  robotics  robotdesc1", "python  ML  AI",
         "project2.1  project 2.2","asa  asedf  ererere"};
 
@@ -80,34 +80,6 @@ public class ProjectsActivity extends AppCompatActivity implements AdapterView.O
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
-        /*recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TextView tv = v.findViewById(R.id.tv_sig_topic);
-
-                Intent repo;
-
-                switch (tv.getText().toString()){
-
-
-                    case "Tic-Tac-Toe-Online":
-                        repo= new Intent(getApplicationContext(), RepoActivity.class);
-                        repo.putExtra("URL", links[0]);
-                        startActivity(repo);
-                        break;
-
-                    case "RealtimeTicTacToe":
-                        repo = new Intent(getApplicationContext(), RepoActivity.class);
-                        repo.putExtra("URL", links[1]);
-                        startActivity(repo);
-                        break;
-
-
-                }
-            }
-        });
-*/
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -120,45 +92,6 @@ public class ProjectsActivity extends AppCompatActivity implements AdapterView.O
         }
     }
 
-   // @Override
-  /*  public void onClick(View v) {
-
-        TextView tv = v.findViewById(R.id.tv_sig_topic);
-
-        Intent repo;
-
-        switch (tv.getText().toString()){
-
-
-            case "Tic-Tac-Toe-Online":
-                repo= new Intent(getApplicationContext(), RepoActivity.class);
-                repo.putExtra("URL", links[0]);
-                startActivity(repo);
-                break;
-
-            case "RealtimeTicTacToe":
-                repo = new Intent(getApplicationContext(), RepoActivity.class);
-                repo.putExtra("URL", links[1]);
-                startActivity(repo);
-                break;
-
-
-        }
-    }*/
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        Intent repo;
-        switch (position){
-            case 0:
-                repo= new Intent(getApplicationContext(), RepoActivity.class);
-                repo.putExtra("URL", links[0]);
-                startActivity(repo);
-                break;
-        }
-
-    }
 }
 
 class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectHolder> {
@@ -177,7 +110,7 @@ class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProjectAdapter.ProjectHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProjectAdapter.ProjectHolder holder, final int position) {
         holder.tv_topic.setText(projects.get(position).getTitle());
 
         holder.tv_pro_year.setText(projects.get(position).getYear());
@@ -218,6 +151,18 @@ class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectHolder> 
         }
 //        else
 //            holder.tv_made_by4.setVisibility(View.GONE);
+
+
+        // starting a webview with the github repo
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context,RepoActivity.class);
+                intent.putExtra("URL",projects.get(position).getLink());
+                context.startActivity(intent);
+            }
+        });
 
 
     }
